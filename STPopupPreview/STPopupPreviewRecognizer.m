@@ -261,7 +261,7 @@ CGFloat const STPopupPreviewShowActionsOffset = 30;
 {
     if (self = [super init]) {
         _delegate = deleagte;
-        _pressDuration = duration
+        _pressDuration = duration;
     }
     return self;
 }
