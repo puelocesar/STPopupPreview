@@ -241,6 +241,8 @@ CGFloat const STPopupPreviewShowActionsOffset = 30;
 
 @property (nonatomic, weak) UIView *view;
 
+@property double pressDuration;
+
 @end
 
 @implementation STPopupPreviewRecognizer
@@ -255,10 +257,11 @@ CGFloat const STPopupPreviewShowActionsOffset = 30;
     STPopupPreviewActionSheet *_actionSheet;
 }
 
-- (instancetype)initWithDelegate:(id<STPopupPreviewRecognizerDelegate>)deleagte
+- (instancetype)initWithDelegate:(id<STPopupPreviewRecognizerDelegate>)deleagte pressDuration:(double)duration
 {
     if (self = [super init]) {
         _delegate = deleagte;
+        _pressDuration = duration
     }
     return self;
 }
@@ -267,7 +270,7 @@ CGFloat const STPopupPreviewShowActionsOffset = 30;
 {
     if (!_longPressGesture) {
         _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(gestureAction:)];
-        _longPressGesture.minimumPressDuration = 0.3;
+        _longPressGesture.minimumPressDuration = self.pressDuration;
     }
     [_view removeGestureRecognizer:_longPressGesture];
     _view = view;

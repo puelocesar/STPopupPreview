@@ -86,7 +86,7 @@ typedef NS_ENUM(NSUInteger, STPopupPreviewRecognizerState) {
 @property (nonatomic, assign, readonly) STPopupPreviewRecognizerState state;
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithDelegate:(id<STPopupPreviewRecognizerDelegate>)deleagte NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDelegate:(id<STPopupPreviewRecognizerDelegate>)deleagte pressDuration:(double)duration NS_DESIGNATED_INITIALIZER;
 
 @end
 
